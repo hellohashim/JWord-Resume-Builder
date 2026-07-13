@@ -1,0 +1,149 @@
+/* --- YOUR EXISTING STYLES --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(244, 243, 243);
+  padding: 0.5rem 2rem;
+  color: black;
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logoText {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLinks a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.navLinks a:hover {
+  opacity: 0.8;
+}
+
+.authLinks {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.signupBtn {
+  background-color: #388087;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600 !important;
+}
+
+
+/* --- AVATAR & DROPDOWN STYLES --- */
+.profileContainer {
+  position: relative; /* Crucial: This keeps the dropdown anchored to the avatar */
+  display: flex;
+  align-items: center;
+}
+
+.avatarBtn {
+  background: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.avatarBtn:hover {
+  border-color: #388087; 
+}
+
+.avatarIcon {
+  width: 32px;
+  height: 32px;
+  color: #4b5563;
+}
+
+/* Dropdown Animation */
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px); /* Anchors it exactly 8px below the avatar */
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  animation: dropdownFade 0.2s ease-out forwards;
+}
+
+/* Layout for items containing icons */
+.dropdownItem, .logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdownItem {
+  color: #4b5563 !important;
+}
+
+.dropdownItem:hover {
+  background-color: #f3f4f6;
+  color: #111827 !important;
+}
+
+.logoutBtn {
+  color: #ef4444; 
+}
+
+.logoutBtn:hover {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.dropdownIcon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background-color: #f3f4f6;
+  margin: 0;
+}

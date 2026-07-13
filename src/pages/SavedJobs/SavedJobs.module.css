@@ -1,0 +1,65 @@
+.savedContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.helperText {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.jobGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.jobCard {
+  padding: 0 !important; /* Override default card padding to make whole card clickable */
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.jobCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid var(--primary-teal);
+}
+
+.clickableArea {
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.clickableArea h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-dark);
+}
+
+.company {
+  color: var(--primary-teal);
+  font-weight: 500;
+  margin: 0 0 1.5rem 0;
+}
+
+.cardFooter {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.viewLink {
+  color: var(--primary-teal);
+  font-weight: bold;
+  font-size: 0.9rem;
+}

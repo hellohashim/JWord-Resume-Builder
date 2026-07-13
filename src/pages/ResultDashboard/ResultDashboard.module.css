@@ -1,0 +1,141 @@
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.previewSection {
+  background-color: var(--text-light);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.pdfViewer {
+  height: 600px;
+  background-color: #e9ecef;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.downloadBtn {
+  background-color: var(--text-dark);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.interactiveSection {
+  background-color: var(--text-light);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 1.5rem;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #666;
+  border-bottom: 3px solid transparent;
+}
+
+.activeTab {
+  color: var(--primary-teal);
+  border-bottom-color: var(--primary-teal);
+}
+
+.tabContent {
+  animation: fadeIn 0.3s ease;
+}
+
+.chatWindow {
+  height: 250px;
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-y: auto;
+  margin: 1rem 0;
+}
+
+.chatMessage {
+  margin-bottom: 1rem;
+  background: #fff;
+  padding: 0.8rem;
+  border-radius: 4px;
+  border-left: 4px solid var(--primary-teal);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.chatInputArea {
+  display: flex;
+  gap: 1rem;
+}
+
+.chatInputArea input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.chatInputArea button {
+  background-color: var(--primary-teal);
+  color: white;
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.learningList {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.learningList li {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.learningList a {
+  color: white;
+  background-color: #ff0000; /* Standard YouTube red for clarity */
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

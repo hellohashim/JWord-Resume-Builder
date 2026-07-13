@@ -1,0 +1,339 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 2rem; /* Added slightly more padding for the split layout */
+}
+
+.heroSection {
+  display: flex;
+  flex-direction: row; /* Split layout */
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  width: 100%;
+  gap: 4rem; /* Space between text and animation */
+  margin-bottom: 2rem;
+}
+
+/* --- Left Side: Text --- */
+.textContent {
+  flex: 1;
+  text-align: left;
+}
+
+.title {
+  font-size: 3rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+/* The magic for the word-by-word animation */
+.animatedWord {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUpWord 0.5s ease forwards;
+  margin-right: 12px; /* Space between words */
+}
+
+@keyframes fadeUpWord {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 500px;
+  /* Fade in the subtitle after the headline finishes */
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.5s; 
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 1.5rem;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.8s;
+}
+
+/* --- Right Side: Visual Animation --- */
+.visualContent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.resumeCard {
+  width: 280px;
+  height: 380px;
+  background-color: var(--text-light, #ffffff);
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  /* Subtle floating effect */
+  animation: float 6s ease-in-out infinite; 
+}
+
+/* Mock lines inside the resume card */
+.skeletonHeader {
+  height: 40px;
+  width: 50%;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.skeletonLine {
+  height: 12px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* The AI Scanner Line */
+.scannerLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-teal);
+  box-shadow: 0 0 15px 2px var(--primary-teal);
+  animation: scanDocument 3s ease-in-out infinite alternate;
+}
+
+/* Keyframes for right-side animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes scanDocument {
+  0% { top: 10%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 90%; opacity: 0; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* --- Buttons & Ad Space --- */
+.primaryBtn {
+  background-color: var(--primary-teal);
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.2s;
+}
+
+.primaryBtn:hover {
+  background-color: var(--primary-hover);
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: var(--primary-teal);
+  border: 2px solid var(--primary-teal);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.secondaryBtn:hover {
+  background-color: var(--primary-teal);
+  color: white;
+}
+
+.adSpace {
+  width: 100%;
+  max-width: 900px;
+  height: 120px;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .heroSection {
+    flex-direction: column;
+    text-align: center;
+  }
+  .textContent {
+    text-align: center;
+  }
+  .subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* --- Redesigned How It Works Section --- */
+.howItWorksSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 4rem;
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-teal);
+  border-radius: 2px;
+}
+
+/* Flex layout perfectly spaces cards and arrows */
+.stepsFlexContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0; /* Gaps are handled by arrow width */
+  margin-top: 2rem;
+}
+
+/* Elongated, equal-sized cards */
+.stepCard {
+  flex: 1; /* Forces all cards to be the exact same width */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  height: 320px; /* Forces an elongated, taller shape */
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  z-index: 2;
+  opacity: 0;
+  animation: slideUpFade 0.6s ease forwards;
+}
+
+.stepCard:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 35px rgba(56, 128, 135, 0.2); /* Soft teal glow on hover */
+}
+
+.stepHeader {
+  background-color: var(--primary-teal);
+  color: #ffffff;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.stepHeader h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.stepBody {
+  flex: 1; /* Pushes content to fill remaining space naturally */
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center; /* Centers text vertically */
+  justify-content: center;
+  text-align: center;
+  color: #4a5568;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Prominent Loopy Arrow Layout */
+.arrowContainer {
+  width: 80px; /* Fixed width for the arrows */
+  flex-shrink: 0; /* Prevents arrows from being squished */
+  margin: 0 -15px; /* Pulls cards slightly closer */
+  z-index: 1;
+  transform: translateY(-20px); /* Lifts arrow slightly to center with text */
+}
+
+.loopyArrow {
+  width: 100%;
+  height: 100px;
+  overflow: visible; /* Prevents the thick stroke from clipping */
+}
+
+.arrowPath, .arrowHead {
+  /* Gives the arrow a drawn-in animation on load */
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawArrow 1.5s ease forwards 0.8s;
+}
+
+/* Animations to make it non-boring */
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drawArrow {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .stepsFlexContainer {
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .stepCard {
+    min-width: calc(45% - 2rem);
+    flex: none;
+    height: auto; /* Allow natural height on mobile */
+    min-height: 250px;
+  }
+
+  .arrowContainer {
+    display: none; /* Hide horizontal arrows when stacked */
+  }
+}
+
+@media (max-width: 600px) {
+  .stepCard {
+    min-width: 100%;
+  }
+}

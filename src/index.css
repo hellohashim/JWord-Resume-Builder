@@ -1,0 +1,21 @@
+/* src/index.css */
+:root {
+  --primary-teal: #388087;
+  --primary-hover: #2c666c;
+  --bg-color: #F6F6F2;
+  --text-dark: #000000;
+  --text-light: #ffffff;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
+
+* {
+  box-sizing: border-box;
+}

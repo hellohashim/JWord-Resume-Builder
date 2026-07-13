@@ -1,0 +1,71 @@
+.builderContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: var(--text-light);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.builderForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formSection label {
+  font-weight: bold;
+  color: var(--primary-teal);
+}
+
+.formSection input,
+.formSection textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.templateGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.templateCard {
+  border: 2px solid #eee;
+  border-radius: 8px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #fafafa;
+  font-weight: 500;
+}
+
+.templateCard:hover,
+.templateCard:active {
+  border-color: var(--primary-teal);
+  background-color: #f0f7f8;
+}
+
+.generateBtn {
+  background-color: var(--primary-teal);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
