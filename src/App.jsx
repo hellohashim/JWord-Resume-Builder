@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navigation/Navbar';
-import Navbar2 from './components/Navigation/Navbar2'; // <-- FIXED: Renamed to Navbar2
+import Navbar2 from './components/Navigation/Navbar2'; 
 import Home from './pages/Home/Home';
 import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
 import Account from './pages/Account/AccountDetails';
+import JobBuilder from './pages/JobBuilder/JobBuilder'; 
+import SavedJobs from './pages/SavedJobs/SavedJobs'; 
+import ResultDashboard from './pages/ResultDashboard/ResultDashboard'; // <-- ADDED THIS IMPORT
 
 // --- THE BOUNCER COMPONENT ---
-// This checks if a token exists. If yes, it renders the page. If no, it redirects to /login.
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = !!localStorage.getItem('token');
   return isAuthenticated ? children : <Navigate to="/login" replace />;
@@ -16,25 +18,38 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <BrowserRouter>
-      {/* You can stack your navbars here so they both appear at the top */}
       <Navbar /> 
       <Navbar2 />
       
       <Routes>
-        {/* Public Routes - Anyone can visit these */}
+        {/* Public Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         
-        {/* Protected Routes - Only logged-in users can visit these */}
+        {/* Protected Routes */}
         <Route 
           path="/account" 
-          element={
-            <ProtectedRoute>
-              <Account />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute><Account /></ProtectedRoute>}
         />
+        
+        <Route 
+          path="/build" 
+          element={<ProtectedRoute><JobBuilder /></ProtectedRoute>}
+        />
+
+        {/* <-- ADDED SAVED JOBS ROUTE --> */}
+        <Route 
+          path="/saved-jobs" 
+          element={<ProtectedRoute><SavedJobs /></ProtectedRoute>}
+        />
+
+        {/* <-- ADDED RESULT DASHBOARD ROUTE (Crucial for the AI output) --> */}
+        <Route 
+          path="/dashboard/:jobId" 
+          element={<ProtectedRoute><ResultDashboard /></ProtectedRoute>}
+        />
+
       </Routes>
     </BrowserRouter>
   );

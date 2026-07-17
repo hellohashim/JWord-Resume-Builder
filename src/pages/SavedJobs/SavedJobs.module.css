@@ -1,65 +1,165 @@
 .savedContainer {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
-.helperText {
-  color: #666;
-  margin-bottom: 2rem;
+.header {
+  text-align: center;
 }
 
-.jobGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #111827;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.jobList {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
 .jobCard {
-  padding: 0 !important; /* Override default card padding to make whole card clickable */
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
+  background: var(--text-light);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .jobCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid var(--primary-teal);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+  border-color: var(--primary-teal);
 }
 
-.clickableArea {
-  padding: 1.5rem;
-  height: 100%;
+.cardHeader {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
 }
 
-.clickableArea h3 {
-  margin: 0 0 0.5rem 0;
-  color: var(--text-dark);
+.jobTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #111827;
 }
 
-.company {
+.companyName {
   color: var(--primary-teal);
-  font-weight: 500;
-  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
-.cardFooter {
-  margin-top: auto;
+.dateBadge {
+  background: #eefafb;
+  color: var(--primary-teal);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.cardBody {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #eee;
-  padding-top: 1rem;
+  gap: 2rem;
 }
 
-.date {
-  font-size: 0.85rem;
-  color: #888;
+.detailBox {
+  flex: 1;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
 }
 
-.viewLink {
+.detailBox p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.viewBtn {
+  background: #fff;
+  border: 2px solid var(--primary-teal);
   color: var(--primary-teal);
-  font-weight: bold;
-  font-size: 0.9rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.viewBtn:hover {
+  background: var(--primary-teal);
+  color: #fff;
+}
+
+/* Feedback Section */
+.feedbackSection {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.feedbackBox {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.feedbackBox label {
+  color: #374151;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.feedbackBox textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 1rem;
+  resize: vertical;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.feedbackBox textarea:focus {
+  border-color: var(--primary-teal);
+  box-shadow: 0 0 0 3px rgba(56, 128, 135, 0.1);
+}
+
+@media (max-width: 600px) {
+  .cardBody {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .viewBtn {
+    width: 100%;
+  }
 }

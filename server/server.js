@@ -8,10 +8,14 @@ const app = express();
 // Middleware
 app.use(cors()); // Allows your React app on port 5173 to talk to Express on port 5000
 app.use(express.json()); // Parses incoming JSON requests
+// Expose the public folder so React can fetch the compiled PDFs
+app.use(express.static('public'));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/profile', require('./routes/profile'));
+app.use('/api/resume', require('./routes/resume'));
+app.use('/api/jobs', require('./routes/jobs'));
 
 // Database Connection
 mongoose.connect(process.env.MONGO_URI)

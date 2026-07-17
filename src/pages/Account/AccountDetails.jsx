@@ -69,17 +69,51 @@ const AccountDetails = () => {
   }, [formData, isEditing, isLoading]);
 
   // --- HANDLERS ---
-  const handleUpload = (e) => {
-    setIsParsing(true);
-    setTimeout(() => {
-      setFormData(prev => ({
-        ...prev,
-        personal: { ...prev.personal, name: 'Muhammad Hashim Nazir', email: 'muhammadhashim.nazir2004@gmail.com' },
-        skills: ['React', 'MERN Stack']
-      }));
-      setIsParsing(false);
-    }, 2000);
-  };
+  const handleUpload = async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      
+      setIsParsing(true);
+      
+      const uploadData = new FormData();
+      uploadData.append('resume', file);
+
+      try {
+        const token = localStorage.getItem('token');
+        const res = await fetch('http://localhost:5000/api/resume/parse', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${token}` },
+          body: uploadData
+        });
+
+        const parsedData = await res.json();
+
+        // CRITICAL FIX: Actually check if the backend threw an error!
+        if (!res.ok) {
+          throw new Error(parsedData.message || 'Failed to parse resume');
+        }
+
+        console.log("Success! Gemini returned:", parsedData);
+
+        // Deep merge the data so it safely overwrites existing fields
+        setFormData(prev => ({
+          ...prev,
+          personal: { ...prev.personal, ...(parsedData.personal || {}) },
+          skills: parsedData.skills?.length ? parsedData.skills : prev.skills,
+          education: parsedData.education?.length ? parsedData.education : prev.education,
+          experience: parsedData.experience?.length ? parsedData.experience : prev.experience,
+          projects: parsedData.projects?.length ? parsedData.projects : prev.projects,
+          certificates: parsedData.certificates?.length ? parsedData.certificates : prev.certificates
+        }));
+
+      } catch (err) {
+        console.error("Frontend Parsing Error:", err);
+        alert(`Error parsing resume: ${err.message}. Check your backend terminal for details.`);
+      } finally {
+        setIsParsing(false);
+        e.target.value = null; // Resets the file input
+      }
+    };
 
   const handlePersonalChange = (e) => {
     setFormData({ ...formData, personal: { ...formData.personal, [e.target.name]: e.target.value } });
