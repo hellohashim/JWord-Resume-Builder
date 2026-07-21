@@ -25,6 +25,7 @@ async function compileLatex(latexSource) {
 
   await fs.writeFile(texPath, latexSource);
 
+  console.log("=== compileLatex() started ===");
   try {
     await execAsync(
       `pdflatex -interaction=nonstopmode -halt-on-error -output-directory="${PDFS_DIR}" "${texPath}"`,
