@@ -56,7 +56,7 @@ router.patch('/:id/sections/:sectionId/toggle', auth, async (req, res) => {
     const rawLatexTemplate = await fs.readFile(templatePath, 'utf8');
     const finalLatex = injectTemplate(rawLatexTemplate, job.personal || {}, job.sections, job.omitFields || [], job.template);
     const { pdfFileName } = await compileLatex(finalLatex);
-    job.pdfUrl = `http://localhost:5000/pdfs/${pdfFileName}`;
+    job.pdfUrl = `https://jword-resume-builder.onrender.com/pdfs/${pdfFileName}`;
 
     await job.save();
     res.json({ success: true, data: job.toObject() });
@@ -87,7 +87,7 @@ router.patch('/:id/sections/:sectionId/content', auth, async (req, res) => {
     const rawLatexTemplate = await fs.readFile(templatePath, 'utf8');
     const finalLatex = injectTemplate(rawLatexTemplate, job.personal || {}, job.sections, job.omitFields || [], job.template);
     const { pdfFileName } = await compileLatex(finalLatex);
-    job.pdfUrl = `http://localhost:5000/pdfs/${pdfFileName}`;
+    job.pdfUrl = `https://jword-resume-builder.onrender.com/pdfs/${pdfFileName}`;
 
     await job.save();
     res.json({ success: true, data: job.toObject() });

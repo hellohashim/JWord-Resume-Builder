@@ -87,7 +87,7 @@ router.post("/tailor", auth, async (req, res) => {
       : buildDefaultSections(fullContent);
 
     const finalLatex = injectTemplate(rawLatexTemplate, userProfile.personal || {}, sections, safeOmitFields, template);    const { pdfFileName } = await compileLatex(finalLatex);
-    const pdfUrl = `http://localhost:5000/pdfs/${pdfFileName}`;
+    const pdfUrl = `https://jword-resume-builder.onrender.com/pdfs/${pdfFileName}`;
 
     const jobData = {
       userId: req.userId,
@@ -143,7 +143,7 @@ router.post("/chat-edit", auth, async (req, res) => {
     const rawLatexTemplate = await fs.readFile(templatePath, "utf8");
     const finalLatex = injectTemplate(rawLatexTemplate, updatedPersonal, updatedSections, job.omitFields || [], job.template);
     const { pdfFileName } = await compileLatex(finalLatex);
-    const pdfUrl = `http://localhost:5000/pdfs/${pdfFileName}`;
+    const pdfUrl = `https://jword-resume-builder.onrender.com/pdfs/${pdfFileName}`;
 
     job.personal = updatedPersonal;
     job.sections = updatedSections;

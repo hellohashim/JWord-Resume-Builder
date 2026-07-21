@@ -34,6 +34,9 @@ async function compileLatex(latexSource) {
     // ENOENT / "not recognized" means the pdflatex command itself couldn't
     // be found -- a missing LaTeX installation, not a syntax error in the
     // generated document. Surface that distinction clearly.
+    console.error("STDOUT:", err.stdout);
+    console.error("STDERR:", err.stderr);
+    console.error(err);
     const notInstalled =
       err.code === "ENOENT" ||
       /is not recognized|command not found/i.test(err.message || "");

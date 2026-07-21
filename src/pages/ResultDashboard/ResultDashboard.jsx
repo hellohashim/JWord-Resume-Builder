@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "./ResultDashboard.module.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://jword-resume-builder.onrender.com";
 
 function getSection(sections, type) {
   return (sections || []).find((s) => s.type === type);

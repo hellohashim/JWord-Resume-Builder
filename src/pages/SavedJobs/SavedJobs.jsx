@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './SavedJobs.module.css';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://jword-resume-builder.onrender.com';
 
 const SavedJobs = () => {
   const navigate = useNavigate();

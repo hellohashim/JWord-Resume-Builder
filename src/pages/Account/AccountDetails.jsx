@@ -34,7 +34,7 @@ const AccountDetails = () => {
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/profile', {
+      const res = await fetch('https://jword-resume-builder.onrender.com/api/profile', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const dbData = await res.json();
@@ -109,7 +109,7 @@ const AccountDetails = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/resume/parse", {
+      const res = await fetch("https://jword-resume-builder.onrender.com/api/resume/parse", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: uploadData,
@@ -186,7 +186,7 @@ const AccountDetails = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/profile", {
+      const res = await fetch("https://jword-resume-builder.onrender.com/api/profile", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

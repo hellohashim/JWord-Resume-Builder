@@ -80,7 +80,7 @@ const JobBuilder = () => {
     try {
       const token = localStorage.getItem('token');
 
-      const profileRes = await fetch('http://localhost:5000/api/profile', {
+      const profileRes = await fetch('https://jword-resume-builder.onrender.com/api/profile', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -90,7 +90,7 @@ const JobBuilder = () => {
 
       const savedProfile = await profileRes.json();
 
-      const res = await fetch('http://localhost:5000/api/resume/tailor', {
+      const res = await fetch('https://jword-resume-builder.onrender.com/api/resume/tailor', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
