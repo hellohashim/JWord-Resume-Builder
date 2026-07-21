@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: jword-resume-builder
+    env: docker
+    plan: free
