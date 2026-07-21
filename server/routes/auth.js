@@ -37,7 +37,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-module.exports = router;
+
 // POST /api/auth/login
 router.post('/login', async (req, res) => {
   try {
@@ -70,3 +70,5 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+module.exports = router;
