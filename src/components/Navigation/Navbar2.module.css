@@ -2,33 +2,73 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000000;
-  padding: 1rem 2rem;
+  /* Dark teal-tinted gradient instead of flat black -- ties this bar to
+     the brand's primary teal color instead of feeling like a disconnected
+     generic dark navbar */
+  background: linear-gradient(135deg, #0f1a1b 0%, #142b2d 100%);
+  padding: 0.85rem 2rem;
   color: var(--text-light);
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoText {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
 
 .navLinks {
   display: flex;
   align-items: center;
-  float: right;
-  gap: 2rem;
+  gap: 2.2rem;
 }
 
-.navLinks a {
-  color: var(--text-light);
+/* Animated underline that grows from center on hover and stays fully
+   drawn on the active route -- replaces the old plain opacity fade */
+.navLink {
+  position: relative;
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   font-weight: 500;
-  transition: opacity 0.2s ease;
+  font-size: 0.95rem;
+  padding-bottom: 6px;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.navLinks a:hover {
-  opacity: 0.8;
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4fd1c5;
+  transform: translateX(-50%);
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.navLink:hover {
+  color: #ffffff;
+}
 
+.navLink:hover::after {
+  width: 100%;
+}
 
+.navLinkActive {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.navLinkActive::after {
+  width: 100%;
+}

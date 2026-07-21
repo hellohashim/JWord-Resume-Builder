@@ -1,0 +1,77 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[margin=0.7in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault}
+
+\definecolor{awesome-blue}{RGB}{0,79,144}
+\definecolor{awesome-grey}{gray}{0.4}
+
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \color{white}\bfseries\Large
+}{}{0em}{}[]
+\titleformat{\section}[block]{\color{white}\bfseries\large}{}{0pt}{\colorbox{awesome-blue}{\parbox{\dimexpr\textwidth-8pt\relax}{\vspace{2pt}\hspace{4pt}}}}
+% Simpler: just a colored bar behind the section title text
+\renewcommand{\section}[1]{%
+  \vspace{9pt}%
+  \noindent\colorbox{awesome-blue}{\parbox{\dimexpr\textwidth-10pt\relax}{\color{white}\bfseries\large\vspace{2pt} #1 \vspace{2pt}}}%
+  \vspace{3pt}%
+}
+
+\newcommand{\resumeItem}[1]{\item\small{#1 \vspace{-1pt}}}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{awesome-grey}\small #2}\\
+      \textit{#3} & {\color{awesome-grey}\small #4}\\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubheadingWithCGPA}[5]{
+  \vspace{1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{awesome-grey}\small #2}\\
+      \textit{#3} & {\color{awesome-grey}\small #4}\\
+      \textit{\color{awesome-blue}#5} & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{2pt}}
+
+\begin{document}
+
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X}
+  {\Huge\bfseries\color{awesome-blue} {{PERSONAL_NAME}}}
+\end{tabularx}
+\vspace{3pt}
+
+{{CONTACT_LINE}}
+
+\vspace{4pt}
+
+{{INSERT_SECTIONS_HERE}}
+
+\end{document}

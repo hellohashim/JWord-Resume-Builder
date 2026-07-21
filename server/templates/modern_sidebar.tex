@@ -1,0 +1,67 @@
+\documentclass[letter,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[margin=.55in, top=.55in]{geometry}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[inline]{enumitem}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+
+\definecolor{highlight}{RGB}{20,120,110}
+\hypersetup{colorlinks=true, urlcolor=highlight}
+
+\raggedright
+\raggedbottom
+\setlength{\tabcolsep}{0in}
+\pagenumbering{gobble}
+
+\titlespacing*{\section}{0em}{10pt}{2pt}
+\titleformat{\section}{\color{highlight}\scshape\bfseries\raggedright\large}{}{0em}{}[\vspace{-4pt}{\color{highlight}\titlerule[1.5pt]}]
+
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-1pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      {\bfseries #1} & {\color{highlight}\small #2}\\
+      \textit{\small #3} & \small #4\\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubheadingWithCGPA}[5]{
+  \vspace{1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      {\bfseries #1} & {\color{highlight}\small #2}\\
+      \textit{\small #3} & \small #4\\
+      {\color{highlight}\small #5} & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=1.2em]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{1pt}}
+
+\begin{document}
+
+{\Huge\bfseries {{PERSONAL_NAME}}}\\[3pt]
+{\small\color{highlight} {{CONTACT_LINE}}}\\[2pt]
+\rule{\textwidth}{2pt}
+\vspace{6pt}
+
+{{INSERT_SECTIONS_HERE}}
+
+\end{document}

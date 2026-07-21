@@ -1,0 +1,95 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage[scale=0.88]{FiraMono}
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\definecolor{accent}{RGB}{37,99,235}
+\definecolor{soft-grey}{gray}{0.45}
+\definecolor{text-dark}{gray}{.1}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.3in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Minimal underline-only section header, no rule, letter-spaced caps
+\titleformat{\section}{
+  \bfseries\color{accent} \vspace{6pt} \raggedright \normalsize
+}{}{0em}{}[\vspace{-2pt}]
+
+\newcommand{\resumeItem}[1]{
+  \item\small{ {\color{text-dark}#1} \vspace{-1pt} }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{2pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{soft-grey}\small #2}\vspace{1pt}\\
+      \textit{\color{soft-grey}#3} & {\color{soft-grey} \small #4}\\
+    \end{tabular*}\vspace{-3pt}
+}
+
+\newcommand{\resumeSubheadingWithCGPA}[5]{
+  \vspace{2pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{soft-grey}\small #2}\vspace{1pt}\\
+      \textit{\color{soft-grey}#3} & {\color{soft-grey} \small #4}\\
+      \textit{\color{accent}\small #5} & \\
+    \end{tabular*}\vspace{-3pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & {\color{soft-grey}} \\
+    \end{tabular*}\vspace{-3pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{2pt}}
+
+\color{text-dark}
+
+\begin{document}
+
+\begin{flushleft}
+    {\Huge\bfseries {{PERSONAL_NAME}}} \\ \vspace{6pt}
+    {\small\color{soft-grey} {{CONTACT_LINE}}}
+    \\ \vspace{2pt}
+    {\color{accent}\rule{\textwidth}{1.4pt}}
+\end{flushleft}
+\vspace{4pt}
+
+{{INSERT_SECTIONS_HERE}}
+
+\end{document}

@@ -295,7 +295,11 @@
   flex-direction: column;
   gap: 0.4rem;
 }
-
+.helperText {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  margin-top: -0.15rem;
+}
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }

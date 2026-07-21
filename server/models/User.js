@@ -7,14 +7,16 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   
   // NEW: Resume Data Structures
-  personal: {
-    name: { type: String, default: '' },
-    email: { type: String, default: '' },
-    phone: { type: String, default: '' },
-    country: { type: String, default: '' },
-    linkedin: { type: String, default: '' },
-    github: { type: String, default: '' }
-  },
+personal: {
+  name: { type: String, default: '' },
+  email: { type: String, default: '' },
+  phone: { type: String, default: '' },
+  country: { type: String, default: '' },
+  linkedin: { type: String, default: '' },
+  linkedinLabel: { type: String, default: '' },
+  github: { type: String, default: '' },
+  githubLabel: { type: String, default: '' }
+},
   skills: [{ type: String }],
   education: [{ type: Object }],
   experience: [{ type: Object }],

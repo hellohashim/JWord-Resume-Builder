@@ -1,0 +1,53 @@
+\documentclass[letterpaper,10.5pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0in}
+
+\titleformat is unavailable without titlesec, so redefine \section directly:
+\renewcommand{\section}[1]{\vspace{10pt}{\bfseries\large #1}\par\vspace{-4pt}\rule{\linewidth}{0.5pt}\vspace{2pt}}
+\newcommand{\resumeItem}[1]{\item {#1}}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{4pt}\item[]
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill #4
+  \vspace{-2pt}
+}
+
+\newcommand{\resumeSubheadingWithCGPA}[5]{
+  \vspace{4pt}\item[]
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill #4 \\
+  #5
+  \vspace{-2pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{4pt}\item[] #1 #2
+  \vspace{-2pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=18pt, itemsep=1pt, topsep=2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries {{PERSONAL_NAME}}}\\[3pt]
+  {{CONTACT_LINE}}
+\end{center}
+
+{{INSERT_SECTIONS_HERE}}
+
+\end{document}

@@ -1,0 +1,67 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[parfill]{parskip}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin=0.85in, top=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+
+\definecolor{accent-red}{RGB}{150,20,40}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+
+\titleformat{\section}{
+  \color{accent-red}\scshape\bfseries\large
+}{}{0em}{}[\vspace{-6pt}{\color{accent-red}\titlerule}\vspace{4pt}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-1pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2}\\
+      \textit{\small #3} & \small #4\\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubheadingWithCGPA}[5]{
+  \vspace{1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2}\\
+      \textit{\small #3} & \small #4\\
+      \small #5 & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=1.4em]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{4pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=1.4em,itemsep=-1pt,topsep=2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{2pt}}
+
+\begin{document}
+
+\begin{center}
+  {\Large\scshape\bfseries {{PERSONAL_NAME}}}\\[4pt]
+  {\small {{CONTACT_LINE}}}
+\end{center}
+\vspace{6pt}
+
+{{INSERT_SECTIONS_HERE}}
+
+\end{document}

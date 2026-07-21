@@ -1,0 +1,60 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{\normalsize\scshape\bfseries}{}{0em}{}[\vspace{-2pt}\hrule\vspace{2pt}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+      \textit{\small #3} & \small #4 \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubheadingWithCGPA}[5]{
+  \vspace{1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+      \textit{\small #3} & \small #4 \\
+      \small #5 & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=1.2em]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{3pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=1.2em, itemsep=-1pt, topsep=2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{1pt}}
+
+\usepackage{tabularx}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\scshape {{PERSONAL_NAME}}}\\[4pt]
+  {\small {{CONTACT_LINE}}}
+\end{center}
+\vspace{4pt}
+
+{{INSERT_SECTIONS_HERE}}
+
+\end{document}

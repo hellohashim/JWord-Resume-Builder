@@ -530,3 +530,261 @@
   width: 18px;
   height: 18px;
 }
+/* --- SECTION VISIBILITY PANEL --- */
+
+/* --- MODE SWITCHER: underline nav, not a pill --- */
+.modeSwitcher {
+  position: relative;
+  display: flex;
+  gap: 1.75rem;
+}
+
+.modeTab {
+  border: none;
+  background: transparent;
+  padding: 0.3rem 0 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #9ca3af;
+  cursor: pointer;
+  width: 62px;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.modeTab.modeTabActive {
+  color: #0f5b52;
+}
+
+.modeIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 62px;
+  height: 2px;
+  background: var(--primary-teal);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modeIndicatorRight {
+  transform: translateX(93.75px); /* 62px tab width + 1.75rem (28px) gap */
+}
+
+/* --- SLIDING VIEWPORT --- */
+.slideViewport {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.slideTrack {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slidePane {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- MANUAL PANE --- */
+.manualPane {
+  flex: 1;
+  padding: 1.25rem 1.5rem 2rem;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.manualHint {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.manualSectionBlock {
+  border-bottom: 1px solid #f3f4f6;
+  padding: 0.9rem 0 1.1rem;
+}
+
+.manualSectionBlock:last-child {
+  border-bottom: none;
+}
+
+.sectionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionRowLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.sectionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.sectionDotOn {
+  background-color: var(--primary-teal);
+  box-shadow: 0 0 0 3px rgba(56, 128, 135, 0.15);
+}
+
+.sectionDotOff {
+  background-color: #d1d5db;
+}
+
+.sectionRowTitle {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #d1d5db;
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.toggleSlider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.toggleSwitch input:checked + .toggleSlider {
+  background-color: var(--primary-teal);
+}
+
+.toggleSwitch input:checked + .toggleSlider::before {
+  transform: translateX(18px);
+}
+
+.toggleSwitch input:disabled + .toggleSlider {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- MANUAL EDITOR CONTROLS --- */
+.manualEditorWrap {
+  position: relative;
+  margin-top: 0.85rem;
+  padding-bottom: 2.6rem;
+}
+
+.editTextarea,
+.editInput {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.87rem;
+  background: #f9fafb;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.editTextarea:focus,
+.editInput:focus {
+  outline: none;
+  border-color: var(--primary-teal);
+  background: #ffffff;
+}
+
+.editStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.editRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.editRowLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.editInlineRow {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.editCard {
+  background: #f9fafb;
+  border: 1px solid #eef0f2;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.saveChangesBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #d1d5db;
+  color: #6b7280;
+  border: none;
+  padding: 0.5rem 1.15rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: not-allowed;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.saveChangesBtnActive {
+  background: #10b981;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+}
+
+.saveChangesBtnActive:hover:not(:disabled) {
+  background: #0d9c6f;
+  transform: translateY(-1px);
+}

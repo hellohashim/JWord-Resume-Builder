@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
@@ -14,30 +14,30 @@ const Navbar = () => {
   }, [location]);
 
   const handleLogout = () => {
-      // 1. Remove the security token
-      localStorage.removeItem('token');
-      
-      // 2. WIPE THE AUTO-SAVE DRAFT SO NO GHOST DATA REMAINS!
-      localStorage.removeItem('resumeFormDraft'); 
-      
-      // 3. Close the dropdown and redirect
-      setIsDropdownOpen(false);
-      navigate('/login');
-    };
+    localStorage.removeItem('token');
+    localStorage.removeItem('resumeFormDraft');
+    setIsDropdownOpen(false);
+    navigate('/login');
+  };
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.logoContainer}>
         <h1 className={styles.logoText}>J-Word</h1>
       </div>
-      
+
       <div className={styles.navLinks}>
-        <Link to="/">Home</Link>
-        
+        <NavLink
+          to="/"
+          className={({ isActive }) => isActive ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink}
+        >
+          Home
+        </NavLink>
+
         {isAuthenticated ? (
           <div className={styles.profileContainer}>
-            <button 
-              className={styles.avatarBtn} 
+            <button
+              className={styles.avatarBtn}
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={styles.avatarIcon}>
@@ -48,17 +48,15 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className={styles.dropdown}>
                 <Link to="/account" className={styles.dropdownItem}>
-                  {/* Dashboard Icon */}
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={styles.dropdownIcon}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                   </svg>
                   Dashboard
                 </Link>
-                
+
                 <div className={styles.dropdownDivider}></div>
-                
+
                 <button onClick={handleLogout} className={styles.logoutBtn}>
-                  {/* Logout Icon */}
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={styles.dropdownIcon}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                   </svg>
